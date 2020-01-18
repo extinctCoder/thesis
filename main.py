@@ -1,3 +1,4 @@
+import logging
 import pyautogui
 from time import sleep
 import numpy as np
@@ -10,6 +11,8 @@ from param import broker_address, motor_lift_chanel_prefix
 screenshot_tool = mss()
 client = mqtt.Client(str(__name__))
 client.connect(broker_address)
+logging.basicConfig(format='%(asctime)s %(levelname)s : %(message)s',
+                    datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.DEBUG)
 
 
 def find_motor_lift(screenshot_converted):
