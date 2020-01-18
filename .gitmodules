@@ -1,0 +1,3 @@
+[submodule "remote-opencv-streaming-live-video"]
+	path = remote-opencv-streaming-live-video
+	url = https://github.com/rena2damas/remote-opencv-streaming-live-video.git
