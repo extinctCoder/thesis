@@ -5,6 +5,7 @@ opencv-python==4.1.2.30
 paho-mqtt==1.5.0
 Pillow==7.0.0
 PyAutoGUI==0.9.48
+pybase64==1.0.1
 PyGetWindow==0.0.8
 PyMsgBox==1.0.7
 pyobjc==6.1
