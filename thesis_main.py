@@ -3,6 +3,7 @@ import logging
 import os
 import socket
 from time import sleep
+import wx
 
 import cv2 as opencv_four
 import numpy as np
