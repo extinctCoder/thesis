@@ -8,13 +8,16 @@ from time import sleep
 import cv2 as opencv_four
 import numpy
 from PIL import Image
-
+import os
+import logging
 import _thread
 from luma.core.interface.serial import i2c
 from luma.oled.device import ssd1306
 
+
+file_name = os.path.basename(__file__)
 server_port = 5050
-server_address = '127.0.0.1'
+server_address = '192.168.0.101'
 
 
 image_server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -26,19 +29,23 @@ i2c_panel_width = 128
 i2c_panel_height = 64
 number_of_display_row_col = 3
 
-i2c_address = 0x3C
 i2c_port = [3, 4, 5, 6, 7, 8, 9, 10, 11]
-
 serial_array = [[None for row in range(number_of_display_row_col)]
                 for column in range(number_of_display_row_col)]
 
 display_array = [[None for row in range(number_of_display_row_col)]
                  for column in range(number_of_display_row_col)]
 
+# logging.basicConfig(format='%(asctime)s, %(levelname)s\t: %(message)s', filename=file_name+'.log', datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.DEBUG)
+logging.basicConfig(format='%(asctime)s, %(levelname)s\t: %(message)s',
+                    datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.DEBUG)
+
+
 port_index = 0
 for row in range(3):
     for column in range(3):
-        serial_array[row][column] = i2c(int(i2c_port[port_index]), i2c_address)
+        serial_array[row][column] = i2c(
+            port=i2c_port[port_index], address=0x3C)
         display_array[row][column] = ssd1306(serial_array[row][column])
         port_index = port_index+1
         pass
@@ -74,7 +81,9 @@ def print_segment_image(display_device, segment_image):
 
 
 def convert_string_image(screenshot_string):
-    screenshot_decoded = base64.b64decode(screenshot)
+    logging.info('converting image string into image')
+    logging.debug('decodeing image bytes from image string')
+    screenshot_decoded = base64.b64decode(screenshot_string)
     screenshot_array = numpy.frombuffer(screenshot_decoded, dtype='uint8')
     return opencv_four.imdecode(screenshot_array, 0)
 
@@ -82,37 +91,43 @@ def convert_string_image(screenshot_string):
 def receive_image_string(image_sender, sender_address):
     screenshot_string = b''
     try:
+        logging.info(
+            'starting to receive the image data from the image client')
+        logging.debug('image client address is : {}'.format(sender_address))
+        logging.debug('reading image string from image sender')
         while True:
             temp_string = image_sender.recv(4096)
-            # print(stringData)
-            # time.sleep(1)
             if len(temp_string) <= 0:
                 break
             screenshot_string += temp_string
             pass
         image_sender.close()
+        logging.info('image string reading complete')
     except Exception as client_error:
-        print(client_error)
+        logging.error('image string receiving error : {}'.format(client_error))
         pass
-    return screenshot_string
+    screenshot = convert_string_image(screenshot_string)
+    image_segments = convert_image_segment(screenshot)
+    for row, column, segment in image_segments:
+        _thread.start_new_thread(
+            print_segment_image, (display_array[row][column], segment),)
 
 
 def run_main():
     try:
+        logging.debug('image server successfully created')
         while True:
+            logging.info('waiting for new image sender request')
             image_sender, sender_address = image_server.accept()
-            screenshot_string = receive_image_string(
-                image_sender, sender_address)
-            screenshot = convert_string_image(screenshot)
-            image_segments = convert_image_segment(screenshot)
-            for row, column, segment in image_segments:
-                _thread.start_new_thread(
-                    print_segment_image, (segment, display_array[row][column]))
+            _thread.start_new_thread(
+                receive_image_string, (image_sender, sender_address),)
     except Exception as server_error:
-        print(server_error)
+        logging.error('image server error : {}'.format(server_error))
         pass
     pass
 
 
 if __name__ == '__main__':
+    logging.info('welcome to thesis {} script'.format(file_name))
     run_main()
+    logging.info('leaving from thesis {} script'.format(file_name))

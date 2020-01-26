@@ -1,33 +1,14 @@
 import cv2
 import _thread
 import time
-import socket
-import base64
-import numpy
 import multiprocessing as mp
 from luma.core.interface.serial import i2c
 from luma.core.render import canvas
 from luma.oled.device import ssd1306, ssd1325, ssd1331, sh1106
 from time import sleep
 from PIL import Image
-full_Data = b''
 
-TCP_IP = '192.168.0.101'
-TCP_PORT = 5050
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.bind((TCP_IP, TCP_PORT))
-s.listen(True)
-conn, addr = s.accept()
-
-
-# print(full_Data)
-
-data= base64.b64decode(full_Data)
-#print(data)
-s.close()
-nparr = numpy.frombuffer(data,dtype='uint8')
-decimg=cv2.imdecode(nparr,0)
-
+cap= cv2.VideoCapture('/home/pi/Downloads/videoplayback.mp4')
 n_rows = 3
 n_images_per_row = 3
 width = 384
@@ -90,18 +71,12 @@ def process_2(image3,device2,image4,device1):
     _thread.start_new_thread(print_Image3, (image3,device2),)
     _thread.start_new_thread(print_Image4, (image4,device1),)
 '''
-while True:    
-    stringData = conn.recv(4096)
-    #print(stringData)
-    #time.sleep(1)
-    if len(stringData) <= 0:
-        break
-    full_Data += stringData
+while(True):
     start_time = time.time()
-    #ret, frame = cap.read()
-    #cap = cv2.cvtColor(cap, cv2.COLOR_RGB2GRAY)
-    cap = cv2.resize(decimg, dim, interpolation = cv2.INTER_AREA)
-    height, width = cap.shape
+    ret, frame = cap.read()
+    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    frame = cv2.resize(frame, dim, interpolation = cv2.INTER_AREA)
+    height, width = frame.shape
     roi_height = int(height / n_rows)
     roi_width = int(width / n_images_per_row)
     
@@ -109,7 +84,7 @@ while True:
     
     for x in range(0, n_rows):
         for y in range(0, n_images_per_row):
-            tmp_image=cap[x*roi_height:(x+1)*roi_height, y*roi_width:(y+1)*roi_width]
+            tmp_image=frame[x*roi_height:(x+1)*roi_height, y*roi_width:(y+1)*roi_width]
             images.append(tmp_image)
             
     #Display image
@@ -143,7 +118,7 @@ while True:
     image7 = Image.fromarray(images[6]).convert('1')
     image8 = Image.fromarray(images[7]).convert('1')
     image9 = Image.fromarray(images[8]).convert('1')
-    time.sleep(.5)
+    time.sleep(.155)
     _thread.start_new_thread(print_Image, (image,device9),)
     _thread.start_new_thread(print_Image2, (image2,device8),)
     _thread.start_new_thread(print_Image3, (image3,device7),)
@@ -153,7 +128,11 @@ while True:
     _thread.start_new_thread(print_Image7, (image7,device3),)
     _thread.start_new_thread(print_Image8, (image8,device2),)
     _thread.start_new_thread(print_Image9, (image9,device1),)
-   
+    '''
+    a=mp.Process(target=process_1, args=(image,image2,device4,device3,))
+    b=mp.Process(target=process_2, args=(image3,image4,device2,device1,))
+    a.start()
+    b.start()'''
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
     print(time.time()-start_time)
@@ -161,6 +140,5 @@ cap.release()
 cv2.destroyAllWindows()
 
             
-
 
 
