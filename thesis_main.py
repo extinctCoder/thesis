@@ -101,8 +101,8 @@ def run_main():
         screenshot = np.array(screenshot)
 
         # preview the live image
-        opencv_four.imshow('LIVE VIEW (press f to freeze)', screenshot)
-        if (opencv_four.waitKey(1) & 0xFF) == ord('f'):
+        opencv_four.imshow('LIVE VIEW (press c to capture)', screenshot)
+        if (opencv_four.waitKey(1) & 0xFF) == ord('c'):
             logging.debug('display freezed at : {}'.format(binding_box))
 
             logging.info('sending image to display server')
@@ -110,6 +110,7 @@ def run_main():
                 logging.debug('converting image from numpy array to jpg')
                 _, screenshot_jpg = opencv_four.imencode('.jpg', screenshot)
                 logging.debug('trying to connect with display image server')
+                image_transponder = socket.socket()
                 image_transponder.connect((remote_address, remote_port))
                 logging.debug(
                     'sending the jpg image to the display image server')
@@ -134,8 +135,8 @@ def run_main():
                     row+1, column+1, ''.join((motor_lift_chanel_prefix, str(row), str(column)))))
             opencv_four.imshow('CONVERTED SCREENSHOT', screenshot_converted)
             logging.info('process done')
-            opencv_four.destroyAllWindows()
-            break
+            '''opencv_four.destroyAllWindows()
+            break'''
         if (opencv_four.waitKey(1) & 0xFF) == ord('q'):
             opencv_four.destroyAllWindows()
             break

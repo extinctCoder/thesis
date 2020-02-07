@@ -41,16 +41,32 @@ logging.basicConfig(format='%(asctime)s, %(levelname)s\t: %(message)s',
                     datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.DEBUG)
 
 
-port_index = 0
-for row in range(3):
-    for column in range(3):
-        serial_array[row][column] = i2c(
-            port=i2c_port[port_index], address=0x3C)
-        display_array[row][column] = ssd1306(serial_array[row][column])
-        port_index = port_index+1
+def init_display():
+    logging.info('initializing displays for the script')
+    port_index = 0
+    global serial_array
+    global display_array
+    try:
+        for row in range(3):
+            for column in range(3):
+                logging.info(
+                    'initializing display no : {}x{}'.format(row+1, column+1))
+                serial_array[row][column] = i2c(
+                    port=i2c_port[port_index], address=0x3C)
+                logging.debug(
+                    '{}x{} no port is initialized'.format(row+1, column+1))
+                display_array[row][column] = ssd1306(serial_array[row][column])
+                logging.debug(
+                    '{}x{} no display is initialized'.format(row+1, column+1))
+                port_index = port_index+1
+                pass
+            pass
+    except Exception as client_error:
+        logging.error('display initializing failed : {}'.format(client_error))
         pass
+
+    port_index = 0
     pass
-port_index = 0
 
 
 def convert_image_segment(screenshot):
@@ -71,12 +87,8 @@ def convert_image_segment(screenshot):
                 row+1)*segment_height, column*segment_width:(column+1)*segment_width]
             logging.debug('position of segment number {}x{} is : {},{}'.format(
                 row+1, column+1, (row+1)*segment_height, (column+1)*segment_width))
+            temp_segment = Image.fromarray(temp_segment).convert('1')
             yield row, column, temp_segment
-    pass
-
-
-def print_segment_image(display_device, segment_image):
-    display_device.display(segment_image)
     pass
 
 
@@ -84,12 +96,15 @@ def convert_string_image(screenshot_string):
     logging.info('converting image string into image')
     logging.debug('decodeing image bytes from image string')
     screenshot_decoded = base64.b64decode(screenshot_string)
+    logging.debug('converting bytecode image into numpy array')
     screenshot_array = numpy.frombuffer(screenshot_decoded, dtype='uint8')
+    logging.debug('converting numpy array into image')
     return opencv_four.imdecode(screenshot_array, 0)
 
 
 def receive_image_string(image_sender, sender_address):
     screenshot_string = b''
+    global display_array
     try:
         logging.info(
             'starting to receive the image data from the image client')
@@ -98,27 +113,40 @@ def receive_image_string(image_sender, sender_address):
         while True:
             temp_string = image_sender.recv(4096)
             if len(temp_string) <= 0:
+                logging.info('image string reading complete')
                 break
             screenshot_string += temp_string
             pass
+        screenshot = convert_string_image(screenshot_string)
+        image_segments = convert_image_segment(screenshot)
+        for row, column, segment in image_segments:
+            try:
+                logging.info(
+                    'printing image in segment number : {}x{}'.format(row+1, column+1))
+                display_array[row][column].clear()
+                display_array[row][column].display(segment)
+
+                logging.debug(
+                    'image printing successfull in segment number : {}x{}'.format(row+1, column+1))
+            except Exception as client_error:
+                logging.error('image printing error : {}'.format(client_error))
+            pass
+        logging.debug('clossing connection with image sender')
         image_sender.close()
-        logging.info('image string reading complete')
+        logging.info('connection closed with image sender')
     except Exception as client_error:
         logging.error('image string receiving error : {}'.format(client_error))
         pass
-    screenshot = convert_string_image(screenshot_string)
-    image_segments = convert_image_segment(screenshot)
-    for row, column, segment in image_segments:
-        _thread.start_new_thread(
-            print_segment_image, (display_array[row][column], segment),)
 
 
 def run_main():
+    init_display()
     try:
         logging.debug('image server successfully created')
         while True:
             logging.info('waiting for new image sender request')
             image_sender, sender_address = image_server.accept()
+            # receive_image_string(image_sender, sender_address)
             _thread.start_new_thread(
                 receive_image_string, (image_sender, sender_address),)
     except Exception as server_error:
