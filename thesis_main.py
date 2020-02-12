@@ -19,7 +19,8 @@ number_of_display_row_col = 3
 
 remote_port = 5050
 remote_address = '192.168.0.101'
-motor_lift_chanel_prefix = 'thesis/motor/'
+motor_lift_chanel_prefix = 'thesis/motor/value/'
+motor_lift_enable_chanel = 'thesis/motor/enable'
 
 # program classes
 file_name = os.path.basename(__file__)
@@ -133,9 +134,14 @@ def run_main():
                     ''.join((motor_lift_chanel_prefix, str(row), str(column))), value)
                 logging.debug('data published for segment number {}x{} in chanel : {}'.format(
                     row+1, column+1, ''.join((motor_lift_chanel_prefix, str(row), str(column)))))
-            opencv_four.imshow('CONVERTED SCREENSHOT', screenshot_converted)
+            logging.info(
+                'publissing liftoff command into the transport server')
+            data_transponder.publish(motor_lift_enable_chanel, 1)
+            logging.info(
+                'liftoff command successfully published into the transport server')
+            '''opencv_four.imshow('CONVERTED SCREENSHOT', screenshot_converted)
             logging.info('process done')
-            '''opencv_four.destroyAllWindows()
+            opencv_four.destroyAllWindows()
             break'''
         if (opencv_four.waitKey(1) & 0xFF) == ord('q'):
             opencv_four.destroyAllWindows()
