@@ -13,26 +13,16 @@ from PIL import Image
 full_Data = b''
 
 TCP_IP = '192.168.0.101'
-TCP_PORT = 5000
+TCP_PORT = 5050
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((TCP_IP, TCP_PORT))
 s.listen(True)
 conn, addr = s.accept()
 
-while True:    
-    stringData = conn.recv(4096)
-    #print(stringData)
-    #time.sleep(1)
-    if len(stringData) <= 0:
-        break
-    full_Data += stringData
+
 # print(full_Data)
 
-data= base64.b64decode(full_Data)
-print(data)
-s.close()
-nparr = numpy.frombuffer(data,dtype='uint8')
-decimg=cv2.imdecode(nparr,0)
+
 
 n_rows = 3
 n_images_per_row = 3
@@ -96,7 +86,22 @@ def process_2(image3,device2,image4,device1):
     _thread.start_new_thread(print_Image3, (image3,device2),)
     _thread.start_new_thread(print_Image4, (image4,device1),)
 '''
-while(True):
+while True:
+    while True:
+        stringData = conn.recv(4096)
+    #print(stringData)
+    #time.sleep(1)
+    
+    #print(data)
+    
+    
+    
+        if len(stringData) <= 0:
+            break
+        full_Data += stringData
+    data= base64.b64decode(full_Data)
+    nparr = numpy.frombuffer(data,dtype='uint8')
+    decimg=cv2.imdecode(nparr,0)
     start_time = time.time()
     #ret, frame = cap.read()
     #cap = cv2.cvtColor(cap, cv2.COLOR_RGB2GRAY)
@@ -159,8 +164,10 @@ while(True):
     print(time.time()-start_time)
 cap.release()
 cv2.destroyAllWindows()
+s.close()
 
             
+
 
 
 
