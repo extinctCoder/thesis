@@ -35,8 +35,6 @@ def convert_data():
     string_data = string_data.replace(",,", ",")
     logging.info('removing last charector from the string')
     string_data = string_data[:-1]
-    print(string_data)
-    print(string_data[:-1])
     logging.debug(
         'successfully converted string data : {}'.format(string_data))
     return string_data

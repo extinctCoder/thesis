@@ -12,7 +12,6 @@ def on_connect(client, userdata, flags, rc):
 
 def process_message(client, userdata, msg):
     print("massege received:", str(msg.payload.decode("utf-8")))
-    print("TOPIC received:", client.topic)
 
 
 broker_address = "192.168.0.101"
