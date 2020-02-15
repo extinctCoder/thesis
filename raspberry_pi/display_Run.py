@@ -10,7 +10,7 @@ from luma.core.render import canvas
 from luma.oled.device import ssd1306, ssd1325, ssd1331, sh1106
 from time import sleep
 from PIL import Image
-full_Data = b''
+"""full_Data = b''
 
 TCP_IP = '192.168.0.101'
 TCP_PORT = 5000
@@ -33,6 +33,7 @@ print(data)
 s.close()
 nparr = numpy.frombuffer(data,dtype='uint8')
 decimg=cv2.imdecode(nparr,0)
+"""
 
 n_rows = 3
 n_images_per_row = 3

@@ -1,0 +1,17 @@
+Text appears in red color must be replaced with appropriate information.
+
+For Example:
+
+Thesis/Project Title Goes Here
+
+should be replaced with the name of your Thesis/Project Title
+
+
+Department Head’s Name
+
+should be replaced with 
+
+Dr. Dip Nandi
+Asst. Professor & Head
+Department of Computer Science
+American International University-Bangladesh

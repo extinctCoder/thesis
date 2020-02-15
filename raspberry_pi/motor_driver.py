@@ -1,6 +1,7 @@
 import os
 import logging
 import paho.mqtt.client as motor_server
+import serial
 motor_array = [[0 for row in range(3)]for column in range(3)]
 
 
@@ -18,6 +19,10 @@ def send_data(string_data):
     logging.info('sending motor start command to the micro controller')
     logging.info('sending data matrix to the micro controller')
     # put your code
+    '''ser= serial.Serial('/dev/ttyACM0',9600)
+    arduino_1=string_data
+    while string_data is not None:
+        ser.write(arduino_1.encode())'''
 
     logging.debug('data send to microcontroller is successfull')
     pass
