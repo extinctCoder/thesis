@@ -29,6 +29,9 @@ data_transponder = data_transponder_tool.Client(file_name)
 data_transponder.connect(remote_address)
 image_transponder = socket.socket()
 
+
+# mode variable
+value_mod = 1
 # logging.basicConfig(format='%(asctime)s, %(levelname)s\t: %(message)s', filename=file_name+'.log', datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.DEBUG)
 logging.basicConfig(format='%(asctime)s, %(levelname)s\t: %(message)s',
                     datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.DEBUG)
@@ -131,7 +134,7 @@ def run_main():
                 logging.info(
                     'publissing z-axis data into the transport server')
                 data_transponder.publish(
-                    ''.join((motor_lift_chanel_prefix, str(row), str(column))), value)
+                    ''.join((motor_lift_chanel_prefix, str(row), str(column))), value * value_mod)
                 logging.debug('data published for segment number {}x{} in chanel : {}'.format(
                     row+1, column+1, ''.join((motor_lift_chanel_prefix, str(row), str(column)))))
             logging.info(

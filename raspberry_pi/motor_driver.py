@@ -1,4 +1,5 @@
 import os
+import time
 import logging
 import paho.mqtt.client as motor_server
 import serial
@@ -19,10 +20,14 @@ def send_data(string_data):
     logging.info('sending motor start command to the micro controller')
     logging.info('sending data matrix to the micro controller')
     # put your code
-    '''ser= serial.Serial('/dev/ttyACM0',9600)
-    arduino_1=string_data
-    while string_data is not None:
-        ser.write(arduino_1.encode())'''
+    ser = serial.Serial('/dev/ttyACM0', 9600)
+    # time.sleep(.1)
+    #logging.info('microcontroller response : {}'.format(ser.read(ser.inWaiting())))
+    # time.sleep(.1)
+    ser.flush()
+    ser.write(string_data)
+    # time.sleep(.01)
+    ser.close()
 
     logging.debug('data send to microcontroller is successfull')
     pass
