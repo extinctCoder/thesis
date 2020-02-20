@@ -32,9 +32,9 @@ image_transponder = socket.socket()
 
 # mode variable
 value_mod = 1
-# logging.basicConfig(format='%(asctime)s, %(levelname)s\t: %(message)s', filename=file_name+'.log', datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.DEBUG)
 logging.basicConfig(format='%(asctime)s, %(levelname)s\t: %(message)s',
-                    datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.DEBUG)
+                    filename=file_name+'.log', datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.DEBUG)
+# logging.basicConfig(format='%(asctime)s, %(levelname)s\t: %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.DEBUG)
 
 
 def find_motor_lift(screenshot_converted):
@@ -109,6 +109,12 @@ def run_main():
         if (opencv_four.waitKey(1) & 0xFF) == ord('c'):
             logging.debug('display freezed at : {}'.format(binding_box))
 
+            saved_image = opencv_four.imwrite(
+                filename=file_name+'_screenshot.jpg', img=screenshot)
+
+            logging.info(
+                'Image written to file-system : {}'.format(saved_image))
+
             logging.info('sending image to display server')
             try:
                 logging.debug('converting image from numpy array to jpg')
@@ -142,9 +148,14 @@ def run_main():
             data_transponder.publish(motor_lift_enable_chanel, 1)
             logging.info(
                 'liftoff command successfully published into the transport server')
-            '''opencv_four.imshow('CONVERTED SCREENSHOT', screenshot_converted)
+            opencv_four.imshow('CONVERTED SCREENSHOT', screenshot_converted)
+            saved_image = opencv_four.imwrite(
+                file_name+'_screenshot_converted.jpg', screenshot_converted)
+
+            logging.info(
+                'image written to file-system : {}'.format(saved_image))
             logging.info('process done')
-            opencv_four.destroyAllWindows()
+            '''opencv_four.destroyAllWindows()
             break'''
         if (opencv_four.waitKey(1) & 0xFF) == ord('q'):
             opencv_four.destroyAllWindows()
