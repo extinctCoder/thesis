@@ -1,0 +1,73 @@
+02/20/2020 06:50:07 PM, INFO	: welcome to thesis motor_driver.py script
+02/20/2020 06:50:07 PM, DEBUG	: Sending CONNECT (u0, p0, wr0, wq0, wf0, c1, k60) client_id=b'motor_driver.py'
+02/20/2020 06:50:07 PM, DEBUG	: Sending SUBSCRIBE (d0, m1) [(b'thesis/motor/#', 0)]
+02/20/2020 06:50:07 PM, DEBUG	: Received CONNACK (0, 0)
+02/20/2020 06:50:07 PM, INFO	: connected with result code : 0
+02/20/2020 06:50:07 PM, DEBUG	: Received SUBACK
+02/20/2020 06:50:07 PM, INFO	: subscribed: 1, (0,)
+02/20/2020 06:51:06 PM, DEBUG	: Received PUBLISH (d0, q0, r0, m0), 'thesis/motor/value/00', ...  (2 bytes)
+02/20/2020 06:51:06 PM, INFO	: stating data retrival algorithm
+02/20/2020 06:51:06 PM, DEBUG	: finding the z axis cordinate
+02/20/2020 06:51:06 PM, INFO	: z axis cordant is : value
+02/20/2020 06:51:06 PM, DEBUG	: finding the z axis value
+02/20/2020 06:51:06 PM, INFO	: successfully found 1x1 axis value : 38
+02/20/2020 06:51:06 PM, DEBUG	: Received PUBLISH (d0, q0, r0, m0), 'thesis/motor/value/01', ...  (2 bytes)
+02/20/2020 06:51:06 PM, INFO	: stating data retrival algorithm
+02/20/2020 06:51:06 PM, DEBUG	: finding the z axis cordinate
+02/20/2020 06:51:06 PM, INFO	: z axis cordant is : value
+02/20/2020 06:51:06 PM, DEBUG	: finding the z axis value
+02/20/2020 06:51:06 PM, INFO	: successfully found 1x2 axis value : 59
+02/20/2020 06:51:06 PM, DEBUG	: Received PUBLISH (d0, q0, r0, m0), 'thesis/motor/value/02', ...  (2 bytes)
+02/20/2020 06:51:06 PM, INFO	: stating data retrival algorithm
+02/20/2020 06:51:06 PM, DEBUG	: finding the z axis cordinate
+02/20/2020 06:51:06 PM, INFO	: z axis cordant is : value
+02/20/2020 06:51:06 PM, DEBUG	: finding the z axis value
+02/20/2020 06:51:06 PM, INFO	: successfully found 1x3 axis value : 55
+02/20/2020 06:51:06 PM, DEBUG	: Received PUBLISH (d0, q0, r0, m0), 'thesis/motor/value/10', ...  (2 bytes)
+02/20/2020 06:51:06 PM, INFO	: stating data retrival algorithm
+02/20/2020 06:51:06 PM, DEBUG	: finding the z axis cordinate
+02/20/2020 06:51:06 PM, INFO	: z axis cordant is : value
+02/20/2020 06:51:06 PM, DEBUG	: finding the z axis value
+02/20/2020 06:51:06 PM, INFO	: successfully found 2x1 axis value : 29
+02/20/2020 06:51:06 PM, DEBUG	: Received PUBLISH (d0, q0, r0, m0), 'thesis/motor/value/11', ...  (2 bytes)
+02/20/2020 06:51:06 PM, INFO	: stating data retrival algorithm
+02/20/2020 06:51:06 PM, DEBUG	: finding the z axis cordinate
+02/20/2020 06:51:06 PM, INFO	: z axis cordant is : value
+02/20/2020 06:51:06 PM, DEBUG	: finding the z axis value
+02/20/2020 06:51:06 PM, INFO	: successfully found 2x2 axis value : 64
+02/20/2020 06:51:06 PM, DEBUG	: Received PUBLISH (d0, q0, r0, m0), 'thesis/motor/value/12', ...  (2 bytes)
+02/20/2020 06:51:06 PM, INFO	: stating data retrival algorithm
+02/20/2020 06:51:06 PM, DEBUG	: finding the z axis cordinate
+02/20/2020 06:51:06 PM, INFO	: z axis cordant is : value
+02/20/2020 06:51:06 PM, DEBUG	: finding the z axis value
+02/20/2020 06:51:06 PM, INFO	: successfully found 2x3 axis value : 40
+02/20/2020 06:51:06 PM, DEBUG	: Received PUBLISH (d0, q0, r0, m0), 'thesis/motor/value/20', ...  (2 bytes)
+02/20/2020 06:51:06 PM, INFO	: stating data retrival algorithm
+02/20/2020 06:51:06 PM, DEBUG	: finding the z axis cordinate
+02/20/2020 06:51:06 PM, INFO	: z axis cordant is : value
+02/20/2020 06:51:06 PM, DEBUG	: finding the z axis value
+02/20/2020 06:51:06 PM, INFO	: successfully found 3x1 axis value : 39
+02/20/2020 06:51:06 PM, DEBUG	: Received PUBLISH (d0, q0, r0, m0), 'thesis/motor/value/21', ...  (2 bytes)
+02/20/2020 06:51:06 PM, INFO	: stating data retrival algorithm
+02/20/2020 06:51:06 PM, DEBUG	: finding the z axis cordinate
+02/20/2020 06:51:06 PM, INFO	: z axis cordant is : value
+02/20/2020 06:51:06 PM, DEBUG	: finding the z axis value
+02/20/2020 06:51:06 PM, INFO	: successfully found 3x2 axis value : 46
+02/20/2020 06:51:06 PM, DEBUG	: Received PUBLISH (d0, q0, r0, m0), 'thesis/motor/value/22', ...  (2 bytes)
+02/20/2020 06:51:06 PM, INFO	: stating data retrival algorithm
+02/20/2020 06:51:06 PM, DEBUG	: finding the z axis cordinate
+02/20/2020 06:51:06 PM, INFO	: z axis cordant is : value
+02/20/2020 06:51:06 PM, DEBUG	: finding the z axis value
+02/20/2020 06:51:06 PM, INFO	: successfully found 3x3 axis value : 72
+02/20/2020 06:51:06 PM, DEBUG	: Received PUBLISH (d0, q0, r0, m0), 'thesis/motor/enable', ...  (1 bytes)
+02/20/2020 06:51:06 PM, INFO	: stating data retrival algorithm
+02/20/2020 06:51:06 PM, INFO	: motor enable command found
+02/20/2020 06:51:06 PM, INFO	: constructing data into string format
+02/20/2020 06:51:06 PM, INFO	: removing unwanted charector from the string
+02/20/2020 06:51:06 PM, INFO	: removing last charector from the string
+02/20/2020 06:51:06 PM, DEBUG	: successfully converted string data : 38,59,55,29,64,40,39,46,72
+02/20/2020 06:51:06 PM, INFO	: sending motor start command to the micro controller
+02/20/2020 06:51:06 PM, INFO	: sending data matrix to the micro controller
+02/20/2020 06:51:06 PM, DEBUG	: data send to microcontroller is successfull
+02/20/2020 06:51:07 PM, DEBUG	: Sending PINGREQ
+02/20/2020 06:51:07 PM, DEBUG	: Received PINGRESP

@@ -36,9 +36,9 @@ serial_array = [[None for row in range(number_of_display_row_col)]
 display_array = [[None for row in range(number_of_display_row_col)]
                  for column in range(number_of_display_row_col)]
 
-# logging.basicConfig(format='%(asctime)s, %(levelname)s\t: %(message)s', filename=file_name+'.log', datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.DEBUG)
-logging.basicConfig(format='%(asctime)s, %(levelname)s\t: %(message)s',
-                    datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.DEBUG)
+logging.basicConfig(format='%(asctime)s, %(levelname)s\t: %(message)s', filename=file_name+'.log', datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.DEBUG)
+#logging.basicConfig(format='%(asctime)s, %(levelname)s\t: %(message)s',
+                    #datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.DEBUG)
 
 
 def init_display():

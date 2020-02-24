@@ -1,0 +1,104 @@
+02/20/2020 06:38:16 PM, INFO	: welcome to thesis display_driver.py script
+02/20/2020 06:38:16 PM, INFO	: initializing displays for the script
+02/20/2020 06:38:16 PM, INFO	: initializing display no : 1x1
+02/20/2020 06:38:16 PM, DEBUG	: 1x1 no port is initialized
+02/20/2020 06:38:16 PM, DEBUG	: 1x1 no display is initialized
+02/20/2020 06:38:16 PM, INFO	: initializing display no : 1x2
+02/20/2020 06:38:16 PM, DEBUG	: 1x2 no port is initialized
+02/20/2020 06:38:16 PM, DEBUG	: 1x2 no display is initialized
+02/20/2020 06:38:16 PM, INFO	: initializing display no : 1x3
+02/20/2020 06:38:16 PM, DEBUG	: 1x3 no port is initialized
+02/20/2020 06:38:16 PM, DEBUG	: 1x3 no display is initialized
+02/20/2020 06:38:16 PM, INFO	: initializing display no : 2x1
+02/20/2020 06:38:16 PM, DEBUG	: 2x1 no port is initialized
+02/20/2020 06:38:16 PM, DEBUG	: 2x1 no display is initialized
+02/20/2020 06:38:16 PM, INFO	: initializing display no : 2x2
+02/20/2020 06:38:16 PM, DEBUG	: 2x2 no port is initialized
+02/20/2020 06:38:16 PM, DEBUG	: 2x2 no display is initialized
+02/20/2020 06:38:16 PM, INFO	: initializing display no : 2x3
+02/20/2020 06:38:16 PM, DEBUG	: 2x3 no port is initialized
+02/20/2020 06:38:16 PM, DEBUG	: 2x3 no display is initialized
+02/20/2020 06:38:16 PM, INFO	: initializing display no : 3x1
+02/20/2020 06:38:16 PM, DEBUG	: 3x1 no port is initialized
+02/20/2020 06:38:16 PM, DEBUG	: 3x1 no display is initialized
+02/20/2020 06:38:16 PM, INFO	: initializing display no : 3x2
+02/20/2020 06:38:16 PM, DEBUG	: 3x2 no port is initialized
+02/20/2020 06:38:16 PM, DEBUG	: 3x2 no display is initialized
+02/20/2020 06:38:16 PM, INFO	: initializing display no : 3x3
+02/20/2020 06:38:16 PM, DEBUG	: 3x3 no port is initialized
+02/20/2020 06:38:16 PM, DEBUG	: 3x3 no display is initialized
+02/20/2020 06:38:16 PM, DEBUG	: image server successfully created
+02/20/2020 06:38:16 PM, INFO	: waiting for new image sender request
+02/20/2020 06:49:57 PM, INFO	: welcome to thesis display_driver.py script
+02/20/2020 06:49:57 PM, INFO	: initializing displays for the script
+02/20/2020 06:49:57 PM, INFO	: initializing display no : 1x1
+02/20/2020 06:49:57 PM, DEBUG	: 1x1 no port is initialized
+02/20/2020 06:49:57 PM, DEBUG	: 1x1 no display is initialized
+02/20/2020 06:49:57 PM, INFO	: initializing display no : 1x2
+02/20/2020 06:49:57 PM, DEBUG	: 1x2 no port is initialized
+02/20/2020 06:49:57 PM, DEBUG	: 1x2 no display is initialized
+02/20/2020 06:49:57 PM, INFO	: initializing display no : 1x3
+02/20/2020 06:49:57 PM, DEBUG	: 1x3 no port is initialized
+02/20/2020 06:49:57 PM, DEBUG	: 1x3 no display is initialized
+02/20/2020 06:49:57 PM, INFO	: initializing display no : 2x1
+02/20/2020 06:49:57 PM, DEBUG	: 2x1 no port is initialized
+02/20/2020 06:49:57 PM, DEBUG	: 2x1 no display is initialized
+02/20/2020 06:49:57 PM, INFO	: initializing display no : 2x2
+02/20/2020 06:49:57 PM, DEBUG	: 2x2 no port is initialized
+02/20/2020 06:49:57 PM, DEBUG	: 2x2 no display is initialized
+02/20/2020 06:49:57 PM, INFO	: initializing display no : 2x3
+02/20/2020 06:49:57 PM, DEBUG	: 2x3 no port is initialized
+02/20/2020 06:49:57 PM, DEBUG	: 2x3 no display is initialized
+02/20/2020 06:49:57 PM, INFO	: initializing display no : 3x1
+02/20/2020 06:49:57 PM, DEBUG	: 3x1 no port is initialized
+02/20/2020 06:49:57 PM, DEBUG	: 3x1 no display is initialized
+02/20/2020 06:49:57 PM, INFO	: initializing display no : 3x2
+02/20/2020 06:49:57 PM, DEBUG	: 3x2 no port is initialized
+02/20/2020 06:49:57 PM, DEBUG	: 3x2 no display is initialized
+02/20/2020 06:49:57 PM, INFO	: initializing display no : 3x3
+02/20/2020 06:49:57 PM, DEBUG	: 3x3 no port is initialized
+02/20/2020 06:49:57 PM, DEBUG	: 3x3 no display is initialized
+02/20/2020 06:49:57 PM, DEBUG	: image server successfully created
+02/20/2020 06:49:57 PM, INFO	: waiting for new image sender request
+02/20/2020 06:51:06 PM, INFO	: waiting for new image sender request
+02/20/2020 06:51:06 PM, INFO	: starting to receive the image data from the image client
+02/20/2020 06:51:06 PM, DEBUG	: image client address is : ('192.168.0.111', 64610)
+02/20/2020 06:51:06 PM, DEBUG	: reading image string from image sender
+02/20/2020 06:51:06 PM, INFO	: image string reading complete
+02/20/2020 06:51:06 PM, INFO	: converting image string into image
+02/20/2020 06:51:06 PM, DEBUG	: decodeing image bytes from image string
+02/20/2020 06:51:06 PM, DEBUG	: converting bytecode image into numpy array
+02/20/2020 06:51:06 PM, DEBUG	: converting numpy array into image
+02/20/2020 06:51:06 PM, INFO	: converting image into 3x3 segments
+02/20/2020 06:51:06 PM, DEBUG	: the image is 384px wide & 192px tall
+02/20/2020 06:51:06 PM, INFO	: size of the segment matrix will be : 3x3
+02/20/2020 06:51:06 PM, DEBUG	: each segment will be 128px wide & 64px tall
+02/20/2020 06:51:06 PM, DEBUG	: position of segment number 1x1 is : 64,128
+02/20/2020 06:51:06 PM, INFO	: printing image in segment number : 1x1
+02/20/2020 06:51:06 PM, DEBUG	: image printing successfull in segment number : 1x1
+02/20/2020 06:51:06 PM, DEBUG	: position of segment number 1x2 is : 64,256
+02/20/2020 06:51:06 PM, INFO	: printing image in segment number : 1x2
+02/20/2020 06:51:06 PM, DEBUG	: image printing successfull in segment number : 1x2
+02/20/2020 06:51:06 PM, DEBUG	: position of segment number 1x3 is : 64,384
+02/20/2020 06:51:06 PM, INFO	: printing image in segment number : 1x3
+02/20/2020 06:51:06 PM, DEBUG	: image printing successfull in segment number : 1x3
+02/20/2020 06:51:06 PM, DEBUG	: position of segment number 2x1 is : 128,128
+02/20/2020 06:51:06 PM, INFO	: printing image in segment number : 2x1
+02/20/2020 06:51:06 PM, DEBUG	: image printing successfull in segment number : 2x1
+02/20/2020 06:51:06 PM, DEBUG	: position of segment number 2x2 is : 128,256
+02/20/2020 06:51:06 PM, INFO	: printing image in segment number : 2x2
+02/20/2020 06:51:07 PM, DEBUG	: image printing successfull in segment number : 2x2
+02/20/2020 06:51:07 PM, DEBUG	: position of segment number 2x3 is : 128,384
+02/20/2020 06:51:07 PM, INFO	: printing image in segment number : 2x3
+02/20/2020 06:51:07 PM, DEBUG	: image printing successfull in segment number : 2x3
+02/20/2020 06:51:07 PM, DEBUG	: position of segment number 3x1 is : 192,128
+02/20/2020 06:51:07 PM, INFO	: printing image in segment number : 3x1
+02/20/2020 06:51:07 PM, DEBUG	: image printing successfull in segment number : 3x1
+02/20/2020 06:51:07 PM, DEBUG	: position of segment number 3x2 is : 192,256
+02/20/2020 06:51:07 PM, INFO	: printing image in segment number : 3x2
+02/20/2020 06:51:07 PM, DEBUG	: image printing successfull in segment number : 3x2
+02/20/2020 06:51:07 PM, DEBUG	: position of segment number 3x3 is : 192,384
+02/20/2020 06:51:07 PM, INFO	: printing image in segment number : 3x3
+02/20/2020 06:51:07 PM, DEBUG	: image printing successfull in segment number : 3x3
+02/20/2020 06:51:07 PM, DEBUG	: clossing connection with image sender
+02/20/2020 06:51:07 PM, INFO	: connection closed with image sender
