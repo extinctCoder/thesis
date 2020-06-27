@@ -25,16 +25,20 @@ motor_lift_enable_chanel = 'thesis/motor/enable'
 # program classes
 file_name = os.path.basename(__file__)
 screenshot_tool = mss()
-data_transponder = data_transponder_tool.Client(file_name)
-data_transponder.connect(remote_address)
-image_transponder = socket.socket()
 
 
 # mode variable
 value_mod = 1
+# logging.basicConfig(format='%(asctime)s, %(levelname)s\t: %(message)s',filename=file_name+'.log', datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.DEBUG)
 logging.basicConfig(format='%(asctime)s, %(levelname)s\t: %(message)s',
-                    filename=file_name+'.log', datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.DEBUG)
-# logging.basicConfig(format='%(asctime)s, %(levelname)s\t: %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.DEBUG)
+                    datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.DEBUG)
+
+try:
+    data_transponder = data_transponder_tool.Client(file_name)
+    data_transponder.connect(remote_address)
+    image_transponder = socket.socket()
+except:
+    logging.error("remote server : {} not found".format(remote_address))
 
 
 def find_motor_lift(screenshot_converted):

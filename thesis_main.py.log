@@ -55,3 +55,61 @@
 02/21/2020 12:51:56 am, INFO	: liftoff command successfully published into the transport server
 02/21/2020 12:51:56 am, INFO	: image written to file-system : True
 02/21/2020 12:51:56 am, INFO	: process done
+02/28/2020 08:56:46 PM, INFO	: welcome to thesis thesis_main.py script
+02/28/2020 08:56:46 PM, DEBUG	: entering to image capture mode
+02/28/2020 08:58:52 pm, DEBUG	: display freezed at : {'top': 149.0, 'left': 363.0, 'width': 384, 'height': 192}
+02/28/2020 08:58:52 pm, INFO	: Image written to file-system : True
+02/28/2020 08:58:52 pm, INFO	: sending image to display server
+02/28/2020 08:58:52 pm, DEBUG	: converting image from numpy array to jpg
+02/28/2020 08:58:52 pm, DEBUG	: trying to connect with display image server
+02/28/2020 08:58:52 pm, DEBUG	: sending the jpg image to the display image server
+02/28/2020 08:58:52 pm, INFO	: image send to image display server
+02/28/2020 08:58:52 pm, INFO	: converting image from 2d to 3d in gray scale
+02/28/2020 08:58:52 pm, DEBUG	: converting image from into numpy array
+02/28/2020 08:58:52 pm, DEBUG	: applying algorithm to convert the image into gray scale
+02/28/2020 08:58:52 pm, DEBUG	: applying algorithm to find the depth of the image
+02/28/2020 08:58:52 pm, INFO	: image convertion successful
+02/28/2020 08:58:52 pm, INFO	: finding the individual segments z-axis value
+02/28/2020 08:58:52 pm, DEBUG	: the image is 384px wide & 192px tall
+02/28/2020 08:58:52 pm, INFO	: size of the segment matrix will be : 3x3
+02/28/2020 08:58:52 pm, DEBUG	: each segment will be 128px wide & 64px tall
+02/28/2020 08:58:52 pm, DEBUG	: position of segment number 1x1 is : 64,128
+02/28/2020 08:58:52 pm, DEBUG	: z-axis value of segment number 1x1 is : 12
+02/28/2020 08:58:52 pm, INFO	: publissing z-axis data into the transport server
+02/28/2020 08:58:52 pm, DEBUG	: data published for segment number 1x1 in chanel : thesis/motor/value/00
+02/28/2020 08:58:52 pm, DEBUG	: position of segment number 1x2 is : 64,256
+02/28/2020 08:58:52 pm, DEBUG	: z-axis value of segment number 1x2 is : 80
+02/28/2020 08:58:52 pm, INFO	: publissing z-axis data into the transport server
+02/28/2020 08:58:52 pm, DEBUG	: data published for segment number 1x2 in chanel : thesis/motor/value/01
+02/28/2020 08:58:52 pm, DEBUG	: position of segment number 1x3 is : 64,384
+02/28/2020 08:58:52 pm, DEBUG	: z-axis value of segment number 1x3 is : 75
+02/28/2020 08:58:52 pm, INFO	: publissing z-axis data into the transport server
+02/28/2020 08:58:52 pm, DEBUG	: data published for segment number 1x3 in chanel : thesis/motor/value/02
+02/28/2020 08:58:52 pm, DEBUG	: position of segment number 2x1 is : 128,128
+02/28/2020 08:58:52 pm, DEBUG	: z-axis value of segment number 2x1 is : 21
+02/28/2020 08:58:52 pm, INFO	: publissing z-axis data into the transport server
+02/28/2020 08:58:52 pm, DEBUG	: data published for segment number 2x1 in chanel : thesis/motor/value/10
+02/28/2020 08:58:52 pm, DEBUG	: position of segment number 2x2 is : 128,256
+02/28/2020 08:58:52 pm, DEBUG	: z-axis value of segment number 2x2 is : 28
+02/28/2020 08:58:52 pm, INFO	: publissing z-axis data into the transport server
+02/28/2020 08:58:52 pm, DEBUG	: data published for segment number 2x2 in chanel : thesis/motor/value/11
+02/28/2020 08:58:52 pm, DEBUG	: position of segment number 2x3 is : 128,384
+02/28/2020 08:58:52 pm, DEBUG	: z-axis value of segment number 2x3 is : 56
+02/28/2020 08:58:52 pm, INFO	: publissing z-axis data into the transport server
+02/28/2020 08:58:52 pm, DEBUG	: data published for segment number 2x3 in chanel : thesis/motor/value/12
+02/28/2020 08:58:52 pm, DEBUG	: position of segment number 3x1 is : 192,128
+02/28/2020 08:58:52 pm, DEBUG	: z-axis value of segment number 3x1 is : 10
+02/28/2020 08:58:52 pm, INFO	: publissing z-axis data into the transport server
+02/28/2020 08:58:52 pm, DEBUG	: data published for segment number 3x1 in chanel : thesis/motor/value/20
+02/28/2020 08:58:52 pm, DEBUG	: position of segment number 3x2 is : 192,256
+02/28/2020 08:58:52 pm, DEBUG	: z-axis value of segment number 3x2 is : 62
+02/28/2020 08:58:52 pm, INFO	: publissing z-axis data into the transport server
+02/28/2020 08:58:52 pm, DEBUG	: data published for segment number 3x2 in chanel : thesis/motor/value/21
+02/28/2020 08:58:52 pm, DEBUG	: position of segment number 3x3 is : 192,384
+02/28/2020 08:58:52 pm, DEBUG	: z-axis value of segment number 3x3 is : 66
+02/28/2020 08:58:52 pm, INFO	: publissing z-axis data into the transport server
+02/28/2020 08:58:52 pm, DEBUG	: data published for segment number 3x3 in chanel : thesis/motor/value/22
+02/28/2020 08:58:52 pm, INFO	: publissing liftoff command into the transport server
+02/28/2020 08:58:52 pm, INFO	: liftoff command successfully published into the transport server
+02/28/2020 08:58:52 pm, INFO	: image written to file-system : True
+02/28/2020 08:58:52 pm, INFO	: process done
